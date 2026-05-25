@@ -4,92 +4,511 @@
 <!--Tradedoubler site verification 3485148-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prezzi Migliori - Offerte Amazon &amp; eBay</title>
-    <meta name="description" content="Le migliori offerte Amazon ed eBay selezionate ogni giorno. Risparmia sui tuoi acquisti online con i nostri sconti verificati.">
+    <title>Prezzi Migliori - Offerte Amazon, eBay & Aliexpress selezionate ogni giorno</title>
+    <meta name="description" content="Le migliori offerte Amazon, eBay e Aliexpress selezionate ogni giorno. Risparmia con sconti verificati sui prodotti che ami.">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --accent-light: #dbeafe;
+            --green: #22c55e;
+            --green-dark: #16a34a;
+            --red: #ef4444;
+            --amber: #f59e0b;
+            --text: #1e293b;
+            --text-secondary: #64748b;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --border: #e2e8f0;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.04);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
-        header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; padding: 3rem 1rem; text-align: center; }
-        header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        header p { font-size: 1.2rem; opacity: 0.9; }
-        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-        .card { background: #fff; border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        .card h2 { color: #2563eb; margin-bottom: 1rem; font-size: 1.5rem; }
-        .card p, .card li { color: #555; margin-bottom: 0.5rem; }
-        .card ul { padding-left: 1.5rem; }
-        .tg-button { display: inline-block; background: #0088cc; color: #fff; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: opacity 0.2s; }
-        .tg-button:hover { opacity: 0.9; }
-        .stats { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; }
-        .stat { text-align: center; padding: 1.5rem; background: #f0f4ff; border-radius: 8px; flex: 1; min-width: 120px; }
-        .stat-number { font-size: 2rem; font-weight: 700; color: #2563eb; }
-        .stat-label { font-size: 0.9rem; color: #666; margin-top: 0.3rem; }
-        .offerte { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-        .offerta { border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; transition: box-shadow 0.2s; }
-        .offerta:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .offerta h3 { font-size: 1rem; margin-bottom: 0.5rem; color: #2563eb; }
-        .offerta .prezzo { font-size: 1.1rem; font-weight: 600; color: #16a34a; }
-        .offerta .sconto { display: inline-block; background: #dc2626; color: #fff; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; margin-left: 0.5rem; }
-        footer { text-align: center; padding: 2rem; color: #999; font-size: 0.9rem; }
-        @media (max-width: 600px) { header h1 { font-size: 1.8rem; } }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Nav */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 0.8rem 0;
+        }
+        nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo {
+            font-weight: 800; font-size: 1.3rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        .nav-cta {
+            background: var(--accent); color: #fff;
+            padding: 0.5rem 1.2rem; border-radius: 100px;
+            text-decoration: none; font-size: 0.85rem; font-weight: 600;
+            transition: all 0.2s;
+        }
+        .nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+        /* Hero */
+        .hero {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, #1a365d 50%, var(--primary-light) 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute;
+            top: -50%; right: -30%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+        }
+        .hero::after {
+            content: ''; position: absolute;
+            bottom: -30%; left: -20%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 70%);
+        }
+        .hero .container { position: relative; z-index: 1; text-align: center; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.03em;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #60a5fa, #22c55e);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--accent); color: #fff;
+            padding: 0.9rem 2rem; border-radius: 100px;
+            text-decoration: none; font-weight: 600; font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(59,130,246,0.35); }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.25); color: #fff;
+            padding: 0.9rem 2rem; border-radius: 100px;
+            text-decoration: none; font-weight: 500; font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+        /* Sections */
+        section { padding: 5rem 0; }
+        section:nth-child(even) { background: var(--bg-alt); }
+        .section-label {
+            display: inline-block;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.02em;
+        }
+        .section-sub {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .stat-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
+        .stat-label { color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.3rem; }
+
+        /* How it works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .step {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            position: relative;
+            transition: all 0.2s;
+        }
+        .step:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .step-num {
+            width: 40px; height: 40px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .step p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; }
+
+        /* Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+        .cat-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s;
+            background: #fff;
+        }
+        .cat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .cat-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .cat-card h3 { font-size: 0.9rem; font-weight: 600; }
+        .cat-card p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.3rem; }
+        .cat-badge {
+            display: inline-block;
+            background: var(--green);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 100px;
+            margin-top: 0.5rem;
+        }
+
+        /* Telegram CTA */
+        .tg-cta {
+            background: linear-gradient(135deg, #1e3a5f, #0f172a);
+            color: #fff;
+            border-radius: var(--radius);
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .tg-cta::before {
+            content: ''; position: absolute;
+            top: -50%; right: -30%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0,136,204,0.15) 0%, transparent 70%);
+        }
+        .tg-cta h2 { font-size: 2rem; font-weight: 700; margin-bottom: 0.8rem; }
+        .tg-cta p { color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 2rem; }
+        .tg-btn {
+            display: inline-flex; align-items: center; gap: 0.7rem;
+            background: #0088cc; color: #fff;
+            padding: 1rem 2.5rem; border-radius: 100px;
+            text-decoration: none; font-weight: 600; font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+        .tg-btn:hover { background: #0099dd; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,136,204,0.4); }
+        .tg-features {
+            display: flex; justify-content: center; gap: 2rem;
+            margin-top: 2rem; flex-wrap: wrap;
+        }
+        .tg-feat { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+        .tg-feat strong { color: #fff; }
+
+        /* Marketplaces */
+        .marketplace-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .mp-item {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s;
+            background: #fff;
+        }
+        .mp-item:hover { border-color: var(--accent); }
+        .mp-logo {
+            width: 48px; height: 48px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .mp-amazon { background: #ff9900; color: #fff; }
+        .mp-ebay { background: #e53238; color: #fff; }
+        .mp-aliexpress { background: #ff4747; color: #fff; }
+        .mp-other { background: var(--accent-light); color: var(--accent); }
+        .mp-info h4 { font-size: 0.95rem; font-weight: 600; }
+        .mp-info p { font-size: 0.8rem; color: var(--text-secondary); }
+        .mp-commission {
+            display: inline-block;
+            background: var(--green-dark);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            margin-left: 0.3rem;
+        }
+
+        footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.6);
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        footer a:hover { color: #fff; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps { grid-template-columns: repeat(2, 1fr); }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+            .marketplace-list { grid-template-columns: 1fr; }
+            .tg-cta { padding: 2rem 1.5rem; }
+            .tg-cta h2 { font-size: 1.5rem; }
+            .tg-features { flex-direction: column; align-items: center; gap: 0.8rem; }
+            .step-num { width: 32px; height: 32px; font-size: 0.9rem; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+            .stat-card { padding: 1.2rem; }
+            .stat-number { font-size: 1.8rem; }
+            .steps { grid-template-columns: 1fr; }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+            .cat-card { padding: 1rem; }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>🏷️ Prezzi Migliori</h1>
-        <p>Le migliori offerte Amazon ed eBay, selezionate ogni giorno</p>
-    </header>
+
+<nav>
     <div class="container">
-        <div class="card">
-            <h2>📱 Canale Telegram</h2>
-            <p>Seguici su Telegram per ricevere le offerte in tempo reale, direttamente sul tuo telefono:</p>
-            <div style="text-align:center;margin:1.5rem 0">
-                <a href="https://t.me/PrezziMigliori" class="tg-button" target="_blank">📲 Vai al canale @PrezziMigliori</a>
+        <a href="/" class="logo">PrezziMigliori</a>
+        <a href="https://t.me/PrezziMigliori" class="nav-cta" target="_blank">Canale Telegram</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">Offerte verificate ogni 6 ore</div>
+        <h1>I migliori prezzi <span>ogni giorno</span></h1>
+        <p>Cerchiamo automaticamente le migliori offerte su Amazon, eBay e Aliexpress. Ti mandiamo solo sconti reali e verificati direttamente su Telegram.</p>
+        <div class="hero-buttons">
+            <a href="https://t.me/PrezziMigliori" class="btn-primary" target="_blank">
+                Canale Telegram
+            </a>
+            <a href="#come-funziona" class="btn-outline">Come funziona</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-label">Numeri</div>
+        <h2 class="section-title">In crescita</h2>
+        <p class="section-sub">Offerte trovate e pubblicate ogni giorno.</p>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Offerte trovate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">35</div>
+                <div class="stat-label">Amazon</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">115</div>
+                <div class="stat-label">eBay</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">25%</div>
+                <div class="stat-label">Sconto medio</div>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="card">
-            <h2>📊 Numeri</h2>
-            <div class="stats">
-                <div class="stat"><div class="stat-number">150+</div><div class="stat-label">Offerte trovate</div></div>
-                <div class="stat"><div class="stat-number">35</div><div class="stat-label">Amazon</div></div>
-                <div class="stat"><div class="stat-number">115</div><div class="stat-label">eBay</div></div>
-                <div class="stat"><div class="stat-number">25%</div><div class="stat-label">Sconto medio</div></div>
+<section id="come-funziona">
+    <div class="container">
+        <div class="section-label">Come funziona</div>
+        <h2 class="section-title">Zero sforzo, massimo risparmio</h2>
+        <p class="section-sub">Un sistema completamente automatico che fa tutto per te.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Scansione</h3>
+                <p>Ogni 6 ore cerchiamo le migliori offerte su Amazon, eBay e AliExpress.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Verifica</h3>
+                <p>Confrontiamo i prezzi con la media degli ultimi 30 giorni. Solo sconti reali.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Contenuti</h3>
+                <p>Generiamo descrizioni in italiano con AI per ogni offerta selezionata.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <h3>Pubblicazione</h3>
+                <p>Le offerte arrivano direttamente sul tuo telefono via Telegram.</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="card">
-            <h2>🛍️ Come funziona</h2>
-            <ul>
-                <li>Ogni giorno cerchiamo automaticamente le migliori offerte su Amazon ed eBay</li>
-                <li>Confrontiamo i prezzi con la media degli ultimi 30 giorni per garantire sconti reali</li>
-                <li>Generiamo descrizioni in italiano per ogni offerta</li>
-                <li>Pubblichiamo tutto sul canale Telegram con link diretti</li>
-                <li>Filtriamo solo sconti significativi (minimo 20%)</li>
-            </ul>
+<section>
+    <div class="container">
+        <div class="section-label">Categorie</div>
+        <h2 class="section-title">Le nostre nicchie</h2>
+        <p class="section-sub">Selezioniamo offerte solo in categorie ad alto risparmio.</p>
+        <div class="categories-grid">
+            <div class="cat-card">
+                <div class="cat-icon">👗</div>
+                <h3>Moda</h3>
+                <p>Abbigliamento, scarpe, accessori</p>
+                <span class="cat-badge">Fino a 12% commissione</span>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🪀</div>
+                <h3>Giocattoli</h3>
+                <p>Giochi, puzzle, costruzioni</p>
+                <span class="cat-badge">7% commissione</span>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">⚽</div>
+                <h3>Sport</h3>
+                <p>Fitness, running, palestra</p>
+                <span class="cat-badge">7% commissione</span>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">💄</div>
+                <h3>Bellezza</h3>
+                <p>Makeup, skincare, profumi</p>
+                <span class="cat-badge">7% commissione</span>
+            </div>
         </div>
+    </div>
+</section>
 
-        <div class="card">
-            <h2>🏪 Mercati monitorati</h2>
-            <div class="offerte">
-                <div class="offerta">
-                    <h3>Amazon</h3>
-                    <p>Elettronica, casa, moda, sport</p>
+<section>
+    <div class="container">
+        <div class="tg-cta">
+            <h2>Ricevi le offerte su Telegram</h2>
+            <p>Ogni offerta include descrizione, sconto, e link diretto all'acquisto. Niente spam, solo offerte verificate.</p>
+            <a href="https://t.me/PrezziMigliori" class="tg-btn" target="_blank">
+                Canale Telegram
+            </a>
+            <div class="tg-features">
+                <div class="tg-feat"> Offerte in tempo reale</div>
+                <div class="tg-feat"> Descrizioni in <strong>italiano</strong></div>
+                <div class="tg-feat"> Link diretti <strong>affiliati</strong></div>
+                <div class="tg-feat"> Zero spam</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-label">Marketplace</div>
+        <h2 class="section-title">Dove troviamo le offerte</h2>
+        <p class="section-sub">Collaboriamo con i migliori marketplace per offrirti sconti verificati.</p>
+        <div class="marketplace-list">
+            <div class="mp-item">
+                <div class="mp-logo mp-amazon">A</div>
+                <div class="mp-info">
+                    <h4>Amazon <span class="mp-commission">10-12%</span></h4>
+                    <p>Moda, giocattoli, sport, bellezza</p>
                 </div>
-                <div class="offerta">
-                    <h3>eBay</h3>
+            </div>
+            <div class="mp-item">
+                <div class="mp-logo mp-ebay">eB</div>
+                <div class="mp-info">
+                    <h4>eBay</h4>
                     <p>Tecnologia, collezionismo, accessori</p>
                 </div>
-                <div class="offerta">
-                    <h3>Altri marketplace</h3>
-                    <p>AliExpress, Zalando, MediaMarkt e altri</p>
+            </div>
+            <div class="mp-item">
+                <div class="mp-logo mp-aliexpress">AE</div>
+                <div class="mp-info">
+                    <h4>AliExpress</h4>
+                    <p>Elettronica, casa, accessori</p>
                 </div>
             </div>
         </div>
-
-        <p style="text-align:center;color:#666;margin:2rem 0">⚠️ I prezzi potrebbero variare. Verifica sempre il prezzo finale sul sito del venditore.</p>
     </div>
-    <footer>
-        <p>Prezzi Migliori &copy; 2026 | <a href="https://t.me/PrezziMigliori" style="color:#2563eb">Canale Telegram</a></p>
-    </footer>
+</section>
+
+<footer>
+    <div class="container">
+        <p>Prezzi Migliori &copy; 2026 — <a href="https://t.me/PrezziMigliori" target="_blank">Canale Telegram</a></p>
+        <p style="margin-top:0.5rem;font-size:0.8rem">I prezzi e la disponibilità dei prodotti possono variare. Verifica sempre sul sito del venditore.</p>
+    </div>
+</footer>
+
 </body>
 </html>
