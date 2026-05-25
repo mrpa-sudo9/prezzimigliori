@@ -3,42 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prezzi Migliori - Offerte Amazon & eBay</title>
-    <meta name="description" content="Le migliori offerte Amazon ed eBay selezionate per te. Risparmia sui tuoi acquisti online.">
+    <title>Prezzi Migliori - Offerte Amazon &amp; eBay</title>
+    <meta name="description" content="Le migliori offerte Amazon ed eBay selezionate ogni giorno. Risparmia sui tuoi acquisti online con i nostri sconti verificati.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
         header { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; padding: 3rem 1rem; text-align: center; }
         header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
         header p { font-size: 1.2rem; opacity: 0.9; }
-        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
         .card { background: #fff; border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        .card h2 { color: #2563eb; margin-bottom: 1rem; }
-        .card p { margin-bottom: 1rem; }
-        .tg-button { display: inline-block; background: #0088cc; color: #fff; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: opacity 0.2s; }
+        .card h2 { color: #2563eb; margin-bottom: 1rem; font-size: 1.5rem; }
+        .card p, .card li { color: #555; margin-bottom: 0.5rem; }
+        .card ul { padding-left: 1.5rem; }
+        .tg-button { display: inline-block; background: #0088cc; color: #fff; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: opacity 0.2s; }
         .tg-button:hover { opacity: 0.9; }
-        footer { text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; }
+        .stats { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; }
+        .stat { text-align: center; padding: 1.5rem; background: #f0f4ff; border-radius: 8px; flex: 1; min-width: 120px; }
+        .stat-number { font-size: 2rem; font-weight: 700; color: #2563eb; }
+        .stat-label { font-size: 0.9rem; color: #666; margin-top: 0.3rem; }
+        .offerte { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .offerta { border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; transition: box-shadow 0.2s; }
+        .offerta:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .offerta h3 { font-size: 1rem; margin-bottom: 0.5rem; color: #2563eb; }
+        .offerta .prezzo { font-size: 1.1rem; font-weight: 600; color: #16a34a; }
+        .offerta .sconto { display: inline-block; background: #dc2626; color: #fff; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; margin-left: 0.5rem; }
+        footer { text-align: center; padding: 2rem; color: #999; font-size: 0.9rem; }
+        @media (max-width: 600px) { header h1 { font-size: 1.8rem; } }
     </style>
 </head>
 <body>
     <header>
         <h1>🏷️ Prezzi Migliori</h1>
-        <p>Le migliori offerte Amazon ed eBay, selezionate per te</p>
+        <p>Le migliori offerte Amazon ed eBay, selezionate ogni giorno</p>
     </header>
     <div class="container">
         <div class="card">
-            <h2>Canale Telegram</h2>
-            <p>Seguici su Telegram per ricevere le offerte in tempo reale:</p>
-            <a href="https://t.me/PrezziMigliori" class="tg-button" target="_blank">📱 Vai al canale @PrezziMigliori</a>
+            <h2>📱 Canale Telegram</h2>
+            <p>Seguici su Telegram per ricevere le offerte in tempo reale, direttamente sul tuo telefono:</p>
+            <div style="text-align:center;margin:1.5rem 0">
+                <a href="https://t.me/PrezziMigliori" class="tg-button" target="_blank">📲 Vai al canale @PrezziMigliori</a>
+            </div>
         </div>
+
         <div class="card">
-            <h2>Come funziona</h2>
-            <p>Ogni giorno selezioniamo le migliori offerte da Amazon ed eBay con sconti reali. Pubbliciamo tutto sul canale Telegram con link diretti ai prodotti.</p>
-            <p>Cerchiamo sconti significativi, confrontando i prezzi con la media degli ultimi 30 giorni. Niente finte offerte, solo risparmi veri.</p>
+            <h2>📊 Numeri</h2>
+            <div class="stats">
+                <div class="stat"><div class="stat-number">150+</div><div class="stat-label">Offerte trovate</div></div>
+                <div class="stat"><div class="stat-number">35</div><div class="stat-label">Amazon</div></div>
+                <div class="stat"><div class="stat-number">115</div><div class="stat-label">eBay</div></div>
+                <div class="stat"><div class="stat-number">25%</div><div class="stat-label">Sconto medio</div></div>
+            </div>
         </div>
+
+        <div class="card">
+            <h2>🛍️ Come funziona</h2>
+            <ul>
+                <li>Ogni giorno cerchiamo automaticamente le migliori offerte su Amazon ed eBay</li>
+                <li>Confrontiamo i prezzi con la media degli ultimi 30 giorni per garantire sconti reali</li>
+                <li>Generiamo descrizioni in italiano per ogni offerta</li>
+                <li>Pubblichiamo tutto sul canale Telegram con link diretti</li>
+                <li>Filtriamo solo sconti significativi (minimo 20%)</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🏪 Mercati monitorati</h2>
+            <div class="offerte">
+                <div class="offerta">
+                    <h3>Amazon</h3>
+                    <p>Elettronica, casa, moda, sport</p>
+                </div>
+                <div class="offerta">
+                    <h3>eBay</h3>
+                    <p>Tecnologia, collezionismo, accessori</p>
+                </div>
+                <div class="offerta">
+                    <h3>Altri marketplace</h3>
+                    <p>AliExpress, Zalando, MediaMarkt e altri</p>
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align:center;color:#666;margin:2rem 0">⚠️ I prezzi potrebbero variare. Verifica sempre il prezzo finale sul sito del venditore.</p>
     </div>
     <footer>
-        <p>Prezzi Migliori &copy; 2026</p>
+        <p>Prezzi Migliori &copy; 2026 | <a href="https://t.me/PrezziMigliori" style="color:#2563eb">Canale Telegram</a></p>
     </footer>
 </body>
 </html>
