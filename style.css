@@ -93,6 +93,8 @@ body {
 .category-header h1 { font-size: 2rem; }
 .category-header p { color: var(--text-light); }
 .commission-note { font-size: 0.85rem; color: var(--primary); margin-top: 0.5rem; }
+.guide-link { display: inline-block; margin-top: 0.8rem; padding: 0.5rem 1.2rem; background: var(--primary); color: white !important; border-radius: 8px; text-decoration: none; font-size: 0.9rem; transition: background 0.2s; }
+.guide-link:hover { background: var(--primary-dark); }
 
 /* Products Grid */
 .products-grid {
@@ -165,6 +167,19 @@ body {
     font-size: 0.85rem;
 }
 .footer p { margin-bottom: 0.5rem; }
+
+/* Guide Content */
+.guide-content { padding: 2rem 0; max-width: 800px; }
+.guide-content h2 { color: var(--secondary); margin: 2rem 0 1rem; font-size: 1.5rem; }
+.guide-content h3 { color: var(--primary); margin: 1.5rem 0 0.8rem; font-size: 1.2rem; }
+.guide-content p { margin-bottom: 1rem; line-height: 1.8; }
+.guide-content ul { margin: 1rem 0; padding-left: 1.5rem; }
+.guide-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+.guide-content a { color: var(--primary); text-decoration: underline; }
+.guide-content a:hover { color: var(--primary-dark); }
+.guide-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+.guide-content td, .guide-content th { padding: 0.75rem; border: 1px solid var(--border); text-align: left; }
+.guide-content th { background: var(--secondary); color: white; }
 
 /* Responsive */
 @media (max-width: 768px) {
