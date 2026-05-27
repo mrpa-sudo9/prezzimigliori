@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mrpa-sudo9.github.io/prezzimigliori/sitemap.xml
