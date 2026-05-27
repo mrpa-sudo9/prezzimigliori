@@ -130,19 +130,32 @@ body {
     z-index: 1;
 }
 .product-image {
-    height: 200px;
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f5f6fa;
+    background: #f0f1f4;
+    padding: 1rem;
+    min-height: 0;
+}
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #f0f1f4;
+    color: transparent;
+}
+.product-image img[src*="via.placeholder.com"] {
+    object-fit: scale-down;
     padding: 1rem;
 }
-.product-image img { max-width: 100%; max-height: 180px; object-fit: contain; }
 .product-info { padding: 1.2rem; }
 .product-marketplace { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.5rem; }
-.product-title { font-size: 0.95rem; margin-bottom: 0.5rem; line-height: 1.3; min-height: 2.6em; }
-.product-description { font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.5rem; }
+.product-marketplace img { width: 16px; height: 16px; flex-shrink: 0; }
+.product-title { font-size: 0.95rem; margin-bottom: 0.5rem; line-height: 1.3; min-height: 2.6em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.product-description { font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.5rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .product-price { font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 0.8rem; }
+.product-card { content-visibility: auto; contain-intrinsic-size: 420px; }
 .product-link {
     display: block;
     text-align: center;
